@@ -1,0 +1,99 @@
+/* ── App shell ── */
+.app-shell {
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Loading screen ── */
+.loading-screen {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  background: #07080f;
+}
+
+.loading-screen__logo {
+  font-family: var(--font-mono);
+  font-size: 2rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #a78bfa, #38bdf8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 20px rgba(167,139,250,0.6));
+  animation: flicker 3s ease-in-out infinite;
+}
+
+.loading-screen__bar {
+  width: 200px;
+  height: 2px;
+  background: rgba(167,139,250,0.15);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.loading-screen__bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #a78bfa, #38bdf8, #f472b6);
+  border-radius: 2px;
+  animation: load-bar 1.8s ease-in-out infinite;
+  box-shadow: 0 0 10px rgba(167,139,250,0.5);
+}
+
+.loading-screen__text {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  animation: blink-text 1.2s step-end infinite;
+}
+
+@keyframes load-bar {
+  0%   { width: 0%;    transform: translateX(0); }
+  50%  { width: 100%; }
+  100% { width: 0%;    transform: translateX(200px); }
+}
+
+@keyframes flicker {
+  0%, 95%, 100% { opacity: 1; }
+  96%            { opacity: 0.4; }
+  97%            { opacity: 1; }
+  98%            { opacity: 0.6; }
+}
+
+@keyframes blink-text { 50% { opacity: 0; } }
+
+/* ── Skills + Experience bento row ── */
+.bento-row {
+  max-width: var(--max);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1px 1fr;
+  border-top: 1px solid rgba(167,139,250,0.08);
+  border-bottom: 1px solid rgba(167,139,250,0.08);
+}
+
+.bento-vdivider {
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(167,139,250,0.25) 15%,
+    rgba(56,189,248,0.2) 85%,
+    transparent
+  );
+  align-self: stretch;
+}
+
+@media (max-width: 860px) {
+  .bento-row {
+    grid-template-columns: 1fr;
+  }
+  .bento-vdivider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(167,139,250,0.25), transparent);
+  }
+}

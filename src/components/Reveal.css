@@ -1,0 +1,29 @@
+/* Base — hidden state */
+.reveal {
+  opacity: 0;
+  will-change: opacity, transform;
+}
+
+/* Variants — hidden */
+.reveal--up    { transform: translateY(18px); }
+.reveal--left  { transform: translateX(-16px); }
+.reveal--right { transform: translateX(16px); }
+.reveal--scale { transform: scale(0.96); }
+.reveal--clip  {
+  clip-path: inset(0 0 100% 0);
+  opacity: 1;
+}
+
+/* Visible state */
+.reveal--visible {
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity  0.45s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal--clip.reveal--visible {
+  clip-path: inset(0 0 0% 0);
+  transition: clip-path 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}

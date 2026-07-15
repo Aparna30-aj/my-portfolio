@@ -1,0 +1,52 @@
+/* Theme overrides load after component styles so every surface changes together. */
+html[data-theme="light"] .glass-card,
+html[data-theme="light"] .header,
+html[data-theme="light"] .header--scrolled,
+html[data-theme="light"] .header__action-btn,
+html[data-theme="light"] .floating-dock {
+  background: rgba(255, 255, 255, 0.78);
+  border-color: rgba(76, 72, 125, 0.15);
+  box-shadow: 0 10px 35px rgba(56, 49, 110, 0.12);
+}
+
+html[data-theme="light"] .header--scrolled { background: rgba(255, 255, 255, 0.9); }
+html[data-theme="light"] .header__action-btn { color: var(--text-muted); }
+html[data-theme="light"] .header__action-btn:hover { color: var(--text); background: rgba(56, 189, 248, 0.12); }
+html[data-theme="light"] .header__logo,
+html[data-theme="light"] .header__resume-btn { color: #17152b; }
+
+html[data-theme="light"] .hero__name-first { color: #1d1b35; }
+html[data-theme="light"] .sp-col-title,
+html[data-theme="light"] .exp-title {
+  background: none;
+  color: #1d1b35;
+  -webkit-text-fill-color: currentColor;
+}
+
+html[data-theme="light"] .floating-dock {
+  background: rgba(255, 255, 255, 0.84);
+  box-shadow: 0 8px 28px rgba(56, 49, 110, 0.14);
+}
+html[data-theme="light"] .dock-item { color: #6c6884; }
+html[data-theme="light"] .dock-item:hover,
+html[data-theme="light"] .dock-item--active { color: #27233f; background: rgba(124, 99, 220, 0.12); }
+html[data-theme="light"] .dock-item__tooltip {
+  color: var(--text);
+  background: rgba(250, 251, 255, 0.97);
+  border-color: rgba(124, 99, 220, 0.22);
+}
+
+html[data-theme="light"] .cb-backdrop { background: rgba(65, 61, 97, 0.2); }
+html[data-theme="light"] .cb-drawer {
+  color: var(--text);
+  background-color: rgba(250, 251, 255, 0.97);
+  box-shadow: -8px 0 45px rgba(56, 49, 110, 0.18);
+}
+html[data-theme="light"] .cb-drawer__bar,
+html[data-theme="light"] .cb-message--bot,
+html[data-theme="light"] .cb-input-wrap { background: rgba(124, 99, 220, 0.06); }
+
+html[data-theme="light"] .proj-tag,
+html[data-theme="light"] .skill-chip,
+html[data-theme="light"] .exp-project,
+html[data-theme="light"] .contact-link-card:hover { background: rgba(124, 99, 220, 0.06); }

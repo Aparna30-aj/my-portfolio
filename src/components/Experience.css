@@ -1,0 +1,236 @@
+/* ── Column header (shared with SkillsProjects) ── */
+.exp-col {
+  padding: 3.5rem 0 3.5rem 2rem;
+  min-width: 0;
+}
+
+.exp-col-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+.exp-col-icon { font-size: 1.1rem; }
+.exp-col-title {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 700;
+  background: linear-gradient(120deg, #fff 0%, var(--text-muted) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.02em;
+}
+
+/* ── Timeline ── */
+.exp-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: relative;
+}
+
+/* vertical line running through all entries */
+.exp-timeline::before {
+  content: "";
+  position: absolute;
+  left: 7px;
+  top: 8px;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(
+    to bottom,
+    rgba(56,189,248,0.5),
+    rgba(167,139,250,0.3) 60%,
+    transparent
+  );
+}
+
+/* ── Company entry ── */
+.exp-company {
+  display: flex;
+  gap: 1.5rem;
+  padding-bottom: 2.5rem;
+  position: relative;
+}
+
+.exp-company__dot {
+  flex-shrink: 0;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #38bdf8;
+  border: 2px solid #0d1117;
+  box-shadow: 0 0 10px rgba(56,189,248,0.6), 0 0 20px rgba(56,189,248,0.2);
+  margin-top: 4px;
+  position: relative;
+  z-index: 1;
+  animation: beacon-pulse 2.2s infinite ease-in-out;
+}
+
+@keyframes beacon-pulse {
+  0%, 100% {
+    box-shadow: 0 0 8px rgba(56,189,248,0.6), 0 0 15px rgba(56,189,248,0.2);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 18px rgba(56,189,248,0.9), 0 0 30px rgba(56,189,248,0.4);
+    transform: scale(1.12);
+    background: #a78bfa;
+  }
+}
+
+.exp-company__body {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Company header */
+.exp-company__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.exp-company__role {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.02em;
+}
+
+.exp-company__name {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-dim);
+  margin-top: 0.25rem;
+}
+
+.exp-company__duration {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: #38bdf8;
+  white-space: nowrap;
+  text-shadow: 0 0 10px rgba(56,189,248,0.3);
+}
+
+/* ── Projects ── */
+.exp-projects {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.exp-project {
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  background: rgba(12, 8, 32, 0.4);
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.exp-project:hover {
+  border-color: rgba(167, 139, 250, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.45), 0 0 15px rgba(167, 139, 250, 0.06);
+}
+.exp-project--open {
+  border-color: rgba(56,189,248,0.35);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.55), 0 0 20px rgba(56,189,248,0.08);
+}
+
+.exp-project__toggle {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.9rem 1.1rem;
+  color: var(--text);
+  text-align: left;
+  transition: background 0.25s ease;
+}
+.exp-project__toggle:hover {
+  background: rgba(56,189,248,0.04);
+}
+
+.exp-project__toggle-left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-width: 0;
+}
+
+.exp-project__name {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.exp-project__domain {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  color: #a78bfa;
+  background: rgba(167,139,250,0.1);
+  border: 1px solid rgba(167,139,250,0.2);
+  padding: 0.15rem 0.45rem;
+  border-radius: var(--r);
+  width: fit-content;
+}
+
+.exp-project__toggle-right {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+
+.exp-project__dur {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--text-dim);
+}
+
+.exp-project__chevron {
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  color: #38bdf8;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+.exp-project--open .exp-project__chevron {
+  border-color: rgba(56,189,248,0.4);
+  background: rgba(56,189,248,0.1);
+}
+
+/* Highlights */
+.exp-project__highlights {
+  margin: 0;
+  padding: 0 1.1rem 1.1rem 1.5rem;
+  color: var(--text-muted);
+  font-size: 0.84rem;
+  line-height: 1.75;
+  border-top: 1px solid var(--border);
+  animation: expand-in 0.3s var(--ease-out-expo) both;
+}
+@keyframes expand-in {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: none; }
+}
+.exp-project__highlights li { margin-top: 0.6rem; }
+.exp-project__highlights li::marker { color: #38bdf8; }
+
+@media (max-width: 860px) {
+  .exp-col { padding: 3rem 0; }
+  .exp-company__header { flex-direction: column; gap: 0.25rem; }
+}

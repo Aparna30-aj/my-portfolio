@@ -1,0 +1,102 @@
+.about-grid {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+/* ── Sticky sidebar card ── */
+.about-sidebar {
+  position: sticky;
+  top: 5.5rem;
+  padding: 1.75rem;
+}
+
+.about-sidebar__quote {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 600;
+  background: linear-gradient(135deg, #a78bfa, #38bdf8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+
+.about-facts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.6rem;
+}
+
+.about-fact {
+  background: rgba(56,189,248,0.04);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 0.8rem 0.7rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  transition: all 0.25s var(--ease-out-expo);
+  cursor: default;
+}
+.about-fact:hover {
+  border-color: rgba(167,139,250,0.3);
+  background: rgba(167,139,250,0.1);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(167,139,250,0.12);
+}
+.about-fact__icon { font-size: 1rem; }
+.about-fact__label {
+  font-family: var(--font-display);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text);
+}
+.about-fact__sub {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  color: var(--text-dim);
+}
+
+/* ── Copy column ── */
+.about-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.about-para {
+  color: var(--text-muted);
+  font-size: 0.97rem;
+  line-height: 1.85;
+  padding: 1.25rem 1.5rem;
+  border-left: 2px solid var(--border);
+  background: rgba(56,189,248,0.02);
+  border-radius: 0 var(--r) var(--r) 0;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+.about-para::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, #a78bfa, #38bdf8);
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.4s var(--ease-out-expo);
+}
+.about-para:hover {
+  border-left-color: transparent;
+  background: rgba(56,189,248,0.04);
+  color: var(--text);
+}
+.about-para:hover::before { transform: scaleY(1); }
+
+@media (max-width: 800px) {
+  .about-grid { grid-template-columns: 1fr; }
+  .about-sidebar { position: static; }
+}
